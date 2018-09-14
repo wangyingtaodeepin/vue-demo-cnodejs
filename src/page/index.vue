@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <div class="article_listtest">
+    <div class="article_list">
       <ul>
         <li v-for="i in list" v-bind:key="i.create_at">
           <time v-text="$utils.goodTime(i.create_at)"></time>
@@ -31,6 +31,7 @@ export default {
     getData () {
       this.$api.get('topics', null, r => {
         this.list = r.data
+        console.log(r.data)
       })
     }
   }
